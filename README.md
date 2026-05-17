@@ -36,4 +36,4 @@ Pour contourner cette contrainte technique, il est fortement recommandé de sép
 Cette séparation s'effectue simplement dans votre traitement de texte en insérant la bibliographie par le biais de collections ou de marqueurs ciblés depuis le plugin Zotero. 
 ## Licence
 
-Ce style bibliographique est distribué sous licence **Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 non transposé (CC BY-SA 3.0)**. Vous êtes libre de copier, distribuer et modifier ce style, sous réserve de citer l'auteur d'origine (Soufien Mestaoui / Projet Ibadica) et de publier vos modifications sous une licence identique.
+Ce style bibliographique est distribué sous licence **Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 non transposé (CC BY-SA 3.0)**. Vous êtes libre de copier, distribuer et modifier ce style, sous réserve de citer l'auteur d'origine (Soufien Mestaoui / Ibadica) et de publier vos modifications sous une licence identique.
