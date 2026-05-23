@@ -2690,8 +2690,8 @@
             <label form="verb" suffix=" " text-case="capitalize-first"/>
             <name and="text" initialize="false"/>
           </names>
-          <choose>
-            <if match="none" type="thesis">
+         <choose>
+            <if match="none" type="song thesis">
               <names variable="contributor">
                 <label form="verb" suffix=" " text-case="capitalize-first"/>
                 <name and="text" initialize="false"/>
@@ -2768,13 +2768,41 @@
                 <name and="text" initialize="false"/>
               </names>
               <choose>
-                <if match="none" type="song thesis">
-                  <names variable="contributor">
-                    <label form="verb" suffix=" " text-case="capitalize-first"/>
-                    <name and="text" initialize="false"/>
-                  </names>
+            <if type="thesis">
+              <choose>
+                <if locale="ar ara">
+                  <group delimiter=" ">
+                    <text value="إشراف"/>
+                    <names variable="contributor">
+                      <name delimiter="، " and="text" initialize="false"/>
+                    </names>
+                  </group>
                 </if>
+                <else-if locale="fr fre">
+                  <group delimiter=" ">
+                    <text value="sous la direction de"/>
+                    <names variable="contributor">
+                      <name delimiter=", " and="text" initialize="false"/>
+                    </names>
+                  </group>
+                </else-if>
+                <else>
+                  <group delimiter=" ">
+                    <text value="supervised by"/>
+                    <names variable="contributor">
+                      <name delimiter=", " and="text" initialize="false"/>
+                    </names>
+                  </group>
+                </else>
               </choose>
+            </if>
+            <else-if match="none" type="song">
+              <names variable="contributor">
+                <label form="verb" suffix=" " text-case="capitalize-first"/>
+                <name and="text" initialize="false"/>
+              </names>
+            </else-if>
+          </choose>
             </if>
           </choose>
           <choose>
@@ -3421,7 +3449,7 @@
       <text macro="source-monographic-identifier-contributors-bib-container-author"/>
       <text macro="source-series-bib"/>
       <choose>
-        <if match="any" variable="event-date original-date original-publisher original-publisher-place publisher status">
+        <if match="any" variable="event event-title event-date original-date original-publisher original-publisher-place publisher status">
           <text macro="source-event-bib"/>
         </if>
       </choose>
@@ -3446,7 +3474,7 @@
       <text macro="source-monographic-identifier-contributors-bib-container-author"/>
       <text macro="source-series-bib"/>
       <choose>
-        <if match="any" variable="event-date original-date original-publisher original-publisher-place publisher status">
+        <if match="any" variable="event event-title event-date original-date original-publisher original-publisher-place publisher status">
           <text macro="source-event-bib"/>
         </if>
       </choose>
@@ -3785,12 +3813,20 @@
             <name delimiter="، " and="text" initialize="false"/>
           </names>
           <choose>
-            <if match="none" type="song thesis">
+            <if type="thesis">
+              <group delimiter=" ">
+                <text value="إشراف"/>
+                <names variable="contributor">
+                  <name delimiter="، " and="text" initialize="false"/>
+                </names>
+              </group>
+            </if>
+            <else-if match="none" type="song">
               <names variable="contributor">
                 <label form="verb" suffix=" "/>
                 <name delimiter="، " and="text" initialize="false"/>
               </names>
-            </if>
+            </else-if>
           </choose>
         </group>
       </else>
@@ -3854,12 +3890,20 @@
             <name delimiter="، " and="text" initialize="false"/>
           </names>
           <choose>
-            <if match="none" type="song thesis">
+            <if type="thesis">
+              <group delimiter=" ">
+                <text value="إشراف"/>
+                <names variable="contributor">
+                  <name delimiter="، " and="text" initialize="false"/>
+                </names>
+              </group>
+            </if>
+            <else-if match="none" type="song">
               <names variable="contributor">
                 <label form="verb" suffix=" " text-case="capitalize-first"/>
                 <name delimiter="، " and="text" initialize="false"/>
               </names>
-            </if>
+            </else-if>
           </choose>
         </group>
       </if>
@@ -3928,13 +3972,21 @@
             <label form="verb" suffix=" "/>
             <name delimiter=", " and="text" initialize="false"/>
           </names>
-          <choose>
-            <if match="none" type="song thesis">
+         <choose>
+            <if type="thesis">
+              <group delimiter=" ">
+                <text value="sous la direction de"/>
+                <names variable="contributor">
+                  <name delimiter=", " and="text" initialize="false"/>
+                </names>
+              </group>
+            </if>
+            <else-if match="none" type="song">
               <names variable="contributor">
                 <label form="verb" suffix=" "/>
                 <name delimiter=", " and="text" initialize="false"/>
               </names>
-            </if>
+            </else-if>
           </choose>
         </group>
       </else>
@@ -3998,12 +4050,20 @@
             <name delimiter=", " and="text" initialize="false"/>
           </names>
           <choose>
-            <if match="none" type="song thesis">
+            <if type="thesis">
+              <group delimiter=" ">
+                <text value="Sous la direction de"/>
+                <names variable="contributor">
+                  <name delimiter=", " and="text" initialize="false"/>
+                </names>
+              </group>
+            </if>
+            <else-if match="none" type="song">
               <names variable="contributor">
                 <label form="verb" suffix=" " text-case="capitalize-first"/>
                 <name delimiter=", " and="text" initialize="false"/>
               </names>
-            </if>
+            </else-if>
           </choose>
         </group>
       </if>
@@ -4073,12 +4133,20 @@
             <name delimiter=", " and="text" initialize="false"/>
           </names>
           <choose>
-            <if match="none" type="song thesis">
+            <if type="thesis">
+              <group delimiter=" ">
+                <text value="supervised by"/>
+                <names variable="contributor">
+                  <name delimiter=", " and="text" initialize="false"/>
+                </names>
+              </group>
+            </if>
+            <else-if match="none" type="song">
               <names variable="contributor">
                 <label form="verb" suffix=" "/>
                 <name delimiter=", " and="text" initialize="false"/>
               </names>
-            </if>
+            </else-if>
           </choose>
         </group>
       </else>
@@ -4142,12 +4210,20 @@
             <name delimiter=", " and="text" initialize="false"/>
           </names>
           <choose>
-            <if match="none" type="song thesis">
+            <if type="thesis">
+              <group delimiter=" ">
+                <text value="Supervised by"/>
+                <names variable="contributor">
+                  <name delimiter=", " and="text" initialize="false"/>
+                </names>
+              </group>
+            </if>
+            <else-if match="none" type="song">
               <names variable="contributor">
                 <label form="verb" suffix=" " text-case="capitalize-first"/>
                 <name delimiter=", " and="text" initialize="false"/>
               </names>
-            </if>
+            </else-if>
           </choose>
         </group>
       </if>
