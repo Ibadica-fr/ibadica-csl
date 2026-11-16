@@ -1,39 +1,105 @@
-# Style bibliographique Ibadica (Chicago Author-Date bilingue Arabe/Latin)
+# Ibadica (العربية) — style bibliographique CSL
 
-Ce dépôt contient le fichier de style bibliographique CSL (Citation Style Language) pour le style Ibadica. Conçu sur la base du Chicago Manual of Style (18e édition, système Auteur-Date), ce style a été modifié pour traiter de manière transparente et dynamique les bibliographies bilingues et multilingues alternant entre l'arabe et les langues latines (principalement français et anglais). Il est particulièrement adapté aux travaux de recherche en SHS.
+Style bibliographique [CSL](https://citationstyles.org/) de l'éditeur [Ibadica](https://www.ibadica.org/), entièrement en arabe, en système auteur-date. Il suit la structure du Chicago Manual of Style (auteur-date) adaptée aux usages académiques arabes. Il fonctionne avec Zotero, Mendeley et tout logiciel fondé sur citeproc-js.
 
-## Fonctionnalités principales
+Le fichier à installer est [`ibadica.csl`](ibadica.csl). L'ancienne version multilingue est conservée dans [`ancienne-version/`](ancienne-version/), mais n'est plus maintenue.
 
-* **Aiguillage linguistique automatique :** Le style détecte la langue de chaque référence à partir des métadonnées de l'élément et adapte sa structure en conséquence, évitant ainsi le recours à des profils ou à des styles différents au sein d'un même document.
-* **Respect des conventions typographiques locales :**
-  * **Références latines :** Titres d'ouvrages en italique, séparation par des virgules occidentales et conjonctions de coordination standard (et / and).
-  * **Références arabes :** Titres d'ouvrages en caractères gras (conformément aux usages académiques arabes), séparation par la virgule inversée (،) et conjonction de coordination arabe (و).
-* **Contrôle de la bidirectionnalité (RTL/LTR) :** Insertion de caractères de contrôle Unicode masqués afin de stabiliser l'affichage de la ponctuation et des parenthèses dans les blocs de texte s'écrivant de droite à gauche.
-* **Architecture anti-conflit de mémoire cache :** Les macros critiques (auteurs, contributeurs, dates, recensions et colloques) ont été intégralement scindées en blocs indépendants selon la langue. Cette approche neutralise les anomalies récurrentes du processeur de Zotero (citeproc-js) qui tend à appliquer à tort des termes arabes (tels que "تحرير" ou "فبراير") sur des notices occidentales lors de la compilation globale.
-* **Normalisation des recensions :** Intégration directe des structures de phrases propres à chaque langue pour les comptes rendus de lecture afin de garantir l'exactitude grammaticale (ex. "Recension de... par..." en français et "Review of... by..." en anglais).
+## Installation
 
-## Configuration requise dans Zotero
+1. Téléchargez [`ibadica.csl`](ibadica.csl).
+2. Dans Zotero : Réglages › Citer › Styles, bouton « + », puis choisissez le fichier.
+3. Dans Word ou LibreOffice, choisissez le style **Ibadica (العربية)** dans les préférences du document Zotero.
 
-L'aiguillage automatique repose entièrement sur le champ **Langue** (Language) de vos notices Zotero. Pour un fonctionnement optimal, il est impératif d'utiliser les codes de langue ISO standardisés à deux ou trois lettres en minuscules.
+Si vous aviez installé une version antérieure (« Ibadica (Arabic, author-date) »), supprimez-la : l'identifiant du style a changé.
 
+## Exemples
 
-## Procédure d'installation
+Citations dans le texte :
 
-1. Téléchargez le fichier `Ibadica (author-date).csl` depuis ce dépôt.
-2. Dans Zotero, accédez au menu `Édition` > `Préférences` (ou `Zotero` > `Préférences` sur macOS).
-3. Sélectionnez l'onglet `Citer`, puis l'onglet secondaire `Styles`.
-4. Cliquez sur le bouton `+` situé sous la liste des styles, puis sélectionnez le fichier `.csl` téléchargé.
-5. Dans votre traitement de texte habituel (Word, LibreOffice ou Google Docs), choisissez le style **Ibadica (Author-Date, bilingue Arabe/Latin)** via le module d'extension Zotero.
+<p dir="rtl">(الشماخي 1430هـ/2009م، ج2، ص 45) · (الكندي والريامي 2012) · (الكندي وآخرون 2012) · (الشماخي د.ت، ق 12أ)</p>
 
-## Recommandation pour l'organisation de la bibliographie
+Livre (édition critique, date double, pagination) :
+<p dir="rtl">الشماخي، أحمد بن سعيد. 1430هـ/2009م. <b>كتاب السير</b>. تحقيق محمد حسن. ط2. ج2. بيروت: دار المدار الإسلامي. 350 ص.</p>
 
-En raison d'une limitation intrinsèque du processeur de style de Zotero concernant l'abréviation automatique des listes d'auteurs multiples (le terme *et al.*), le système applique globalement soit la mention latine (*et al.*), soit la mention arabe (*وآخرون*) à l'ensemble du document selon le profil de la première notice longue qu'il traite dans le cache.
+Ouvrage collectif :
+<p dir="rtl">الجعبيري، فرحات ومحمد بابا عمي (إشراف). 2015. <b>الإباضية في الدراسات المعاصرة</b>. سلسلة الدراسات الإباضية، رقم 5. مسقط: وزارة الأوقاف والشؤون الدينية.</p>
 
-Pour contourner cette contrainte technique, il est fortement recommandé de séparer votre bibliographie finale en deux sections distinctes dans votre manuscrit :
-1. Une section dédiée aux sources en caractères latins (français, anglais, etc.).
-2. Une section dédiée aux sources en caractères arabes.
+Œuvre anonyme éditée (le titre remplace l'auteur) :
+<p dir="rtl"><b>السير والجوابات لعلماء وأئمة عمان</b>. 1406هـ/1986م. تحقيق سيدة إسماعيل كاشف. 2 ج. مسقط: وزارة التراث القومي والثقافة.</p>
 
-Cette séparation s'effectue simplement dans votre traitement de texte en insérant la bibliographie par le biais de collections ou de marqueurs ciblés depuis le plugin Zotero. 
+Chapitre d'un ouvrage collectif :
+<p dir="rtl">مصطفى، بشير. 2015. «الإباضية في جربة». في <b>الإباضية في الدراسات المعاصرة</b>، إشراف فرحات الجعبيري، ص 112-145. مسقط: وزارة الأوقاف والشؤون الدينية.</p>
+
+Partie d'une édition critique :
+<p dir="rtl">أبو عمار، عبد الكافي. 1417هـ/1997م. «باب في الإمامة». في <b>الدليل والبرهان</b>، تأليف أبو يعقوب الوارجلاني، تحقيق مصطفى بابزيز، ج3، ص 20-31. مسقط: وزارة التراث.</p>
+
+Article de revue :
+<p dir="rtl">بوعصبانة، عمر. 2020. «المؤسسات الدينية الإباضية في وادي ميزاب». <b>مجلة الدراسات التاريخية</b>، مج 12، ع 3، ص 45-67. https://doi.org/10.1234/abcd.2020.12.</p>
+
+Compte rendu :
+<p dir="rtl">الصوافي، خالد. 2010. مراجعة لكتاب <b>كتاب السير</b>، تأليف أحمد بن سعيد الشماخي. <b>مجلة نزوى</b>، ع 40، ص 201-205.</p>
+
+Thèse :
+<p dir="rtl">بن عيسى، أحمد. 2014. <b>الحياة العلمية في وارجلان</b>. إشراف محمد الصالح مرمول. أطروحة دكتوراه، جامعة الجزائر 2، الجزائر. 512 ص.</p>
+
+Manuscrit :
+<p dir="rtl">الشماخي، أحمد بن سعيد. د.ت. <b>سير المشائخ</b>. مخطوط، مكتبة بولاك، باريس، رقم MS.ARA.1931. 257 ق. تاريخ الاطلاع: 3 نوفمبر 2020. http://archive.org/details/MS.ARA.1931.</p>
+
+Lettre :
+<p dir="rtl">أطفيش، محمد بن يوسف. 1330هـ/1912م. رسالة إلى سليمان الباروني، بني يزقن، 12 مارس. مكتبة القطب، بني يزقن، رقم ر 45.</p>
+
+Entrée d'encyclopédie :
+<p dir="rtl">ناصر، محمد صالح. 2008. «الإمامة». في <b>معجم مصطلحات الإباضية</b>، إشراف فرحات الجعبيري، ج1، ص 80-84. مسقط: وزارة الأوقاف والشؤون الدينية.</p>
+
+Communication non publiée :
+<p dir="rtl">الراشدي، سالم. 2013. «فقه النوازل عند الإباضية». ورقة قُدِّمت في ندوة تطور العلوم الفقهية، مسقط، 8 أبريل.</p>
+
+Page web :
+<p dir="rtl">الحجري، يوسف. 2021. «فهرس المخطوطات العمانية». موقع إباضيكا، 3 مايو. تاريخ الاطلاع: 1 أكتوبر 2026. https://www.ibadica.org/.</p>
+
+Données manquantes :
+<p dir="rtl">البرادي، أبو القاسم. 1302هـ/1885م. <b>الجواهر المنتقاة</b>. د.م: د.ن. 350 ص.</p>
+
+## Conventions
+
+- Titres d'ouvrages, de revues et de manuscrits en gras ; titres d'articles, de chapitres et de pages web entre guillemets « ».
+- Ponctuation arabe (، et ؛) ; conjonction « و » attachée au nom suivant.
+- Abréviations : ط (édition), ج (volume d'un livre), مج (volume d'une revue), ع (numéro), ص (page), ق (folio), د.ت (sans date), د.م (sans lieu), د.ن (sans éditeur).
+- Plages de pages avec un trait d'union simple (« ص 45-67 ») : le tiret demi-cadratin est inversé par l'algorithme bidirectionnel dans un texte de droite à gauche.
+
+## Guide de saisie dans Zotero
+
+| Besoin | Saisie |
+|---|---|
+| Date hégirienne | `original-date: 1430` dans le champ Extra (année grégorienne dans « Date ») |
+| Éditeur critique (تحقيق) | Rôle « Éditeur », avec un auteur ou une date hégirienne |
+| Direction d'un collectif (إشراف) | Rôle « Éditeur » sans auteur ni date hégirienne, ou `editorial-director: Nom \|\| Prénom` dans Extra |
+| Directeur de thèse | Rôle « Collaborateur » (affiché إشراف) |
+| Copiste d'un manuscrit | Rôle « Collaborateur » (affiché نسخ) |
+| Bibliothèque d'un manuscrit ou d'une lettre | Champ « Archive » ; ville dans « Lieu » ; cote seule dans « Cote » (affichée « رقم … ») |
+| Nombre de pages ou de folios | Champ « Nb de pages » : un nombre, pas une plage |
+| Lieu d'écriture d'une lettre | Champ « Lieu de l'événement » |
+| Courriel | `genre: رسالة إلكترونية` dans Extra |
+| Communication | Champ « Type » : un nom simple (ورقة، مداخلة، محاضرة) ; le style ajoute « قُدِّمت في » |
+
+### La règle تحقيق / إشراف
+
+CSL n'a qu'un rôle « éditeur ». Le style le rend par تحقيق quand l'ouvrage a un auteur (ou, pour un chapitre, quand le livre a un auteur) ou une date hégirienne, et par إشراف sinon. Le rôle `editorial-director`, saisi dans Extra, force toujours إشراف ; il permet aussi d'avoir à la fois un directeur (إشراف) et un éditeur critique (تحقيق).
+
+## Limites connues
+
+Ces limites tiennent au langage CSL lui-même et ne peuvent pas être corrigées dans le style :
+
+- les lettres de désambiguïsation sont latines (2020a, 2020b) au lieu de أ، ب ;
+- l'article « ال » compte dans le tri alphabétique ;
+- les chiffres et les noms sont affichés tels que saisis : un nom comme « أبو يعقوب » reste au nominatif après تحقيق ou تأليف ;
+- seuls les mois grégoriens existent : pour une lettre datée en hégirien, seule l'année apparaît ;
+- comme `original-date` sert à la date hégirienne, la date d'une première édition ne peut pas s'afficher ; on peut l'écrire dans le champ « Édition ».
+
+## English summary
+
+Arabic-only author-date style of the publisher Ibadica, modelled on Chicago author-date. Key conventions: bold titles for books and periodicals, guillemets for articles and chapters, Arabic punctuation, Hijri/Gregorian double dates (Hijri year entered as `original-date`), and a distinction between critical editor (تحقيق, CSL `editor` when the work has an author or a Hijri date) and director of a collective volume (إشراف, CSL `editorial-director`, or `editor` without author). In theses `contributor` is the supervisor; in manuscripts it is the copyist.
+
 ## Licence
 
-Ce style bibliographique est distribué sous licence **Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 non transposé (CC BY-SA 3.0)**. Vous êtes libre de copier, distribuer et modifier ce style, sous réserve de citer l'auteur d'origine (Soufien Mestaoui / Ibadica) et de publier vos modifications sous une licence identique.
+[Creative Commons Attribution-ShareAlike 3.0](http://creativecommons.org/licenses/by-sa/3.0/) — Soufien Mestaoui / Ibadica.
