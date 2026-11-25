@@ -19,7 +19,7 @@
     <category field="philosophy"/>
     <category field="theology"/>
     <summary>Arabic-only author-date style of the publisher Ibadica, modelled on the Chicago author-date structure and adapted to Arabic academic conventions: bold titles for works, guillemets for articles and chapters, Arabic punctuation, Hijri/Gregorian double dates (Hijri year in original-date), and the distinction between critical edition (تحقيق) and collective direction (إشراف).</summary>
-    <updated>2026-11-25T12:00:00+00:00</updated>
+    <updated>2026-11-25T14:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale>
@@ -655,6 +655,11 @@
               </else>
             </choose>
             <text macro="holding"/>
+            <!-- Folios of a text inside a codex: "page: 38ظ-42" in Zotero's Extra field -->
+            <group delimiter=" ">
+              <text term="folio" form="short"/>
+              <text variable="page"/>
+            </group>
           </group>
           <text macro="extent"/>
         </group>
